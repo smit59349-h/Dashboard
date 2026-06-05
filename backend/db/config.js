@@ -19,7 +19,7 @@ mongoose.connect(
 .then(()=>console.log("MongoDB Connected"))
 .catch(err=>console.log(err));
 
-app.post("/Registration", async(req,res)=>{
+app.post("/register", async(req,res)=>{
 
     try{
 
