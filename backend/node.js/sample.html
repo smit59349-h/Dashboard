@@ -1,0 +1,16 @@
+let http = require('http');
+let fs = require('fs');
+http.createServer((http.request, Response)=>{
+    responce.writeHead(200, {
+        'Content-Type' : 'text/html'
+    });
+    fs.readFile('./sample.html',(error, data)=> {
+        if (error) {
+            responce.writeHead(404);
+            responce.write('File not found!');
+        } else {
+            responce.write(data);
+        }
+        responce.end();
+    });
+}).listen(8081);
