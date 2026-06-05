@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { user_model } = require('./db/user');
+const User = require('./db/user');
 require('./db/config');
 require('./db/user');
 const path = require('path');

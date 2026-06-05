@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { user_model } = require('./db/user');
+const User = require('./db/user');
 require('./db/config');
 require('./db/user');
 const path = require('path');
@@ -13,7 +13,7 @@ const staticPath = path.join(__dirname, 'public');
 app.use(express.static(staticPath));
 
 app.post("/registration", async (req, res) => {
-    const user = user_model(req.body);
+    const user = new User(req.body);
     const result = await user.save();
     res.send(result);
 });
