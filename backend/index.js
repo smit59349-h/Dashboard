@@ -18,6 +18,15 @@ app.post("/registration", async (req, res) => {
     res.send(result);
 });
 
+app.get("/users", async (req, res) => {
+    try {
+        const users = await User.find();
+        res.send(users);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
