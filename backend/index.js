@@ -57,6 +57,18 @@ app.get("/users", async (req, res) => {
   }
 });
 
+app.delete("/delete-user/:id", async (req, res) => {
+  try {
+    const result = await User.deleteOne({
+      _id: req.params.id,
+    });
+
+    res.send(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 // Home Route
 app.get("/", (req, res) => {
   res.send("Backend Running Successfully");
